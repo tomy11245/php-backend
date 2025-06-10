@@ -1,0 +1,32 @@
+/* 登录页面样式 */
+body {
+  background-color: #f8f9fa;
+}
+
+.container {
+  margin-top: 100px;
+}
+
+.card {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.btn-primary {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* 可选的输入框焦点样式 */
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}

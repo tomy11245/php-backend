@@ -1,0 +1,279 @@
+<!-- <link href="common/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="common/bootstrap/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css" />
+    <script src="common/jquery/jquery-3.7.1.min.js"></script>
+    <script src="common/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script> -->
+<!-- <link rel="stylesheet" href="common/bootstrap/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" /> -->
+<!-- <script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script> -->
+<!-- <script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.zh-CN.min.js"></script> -->
+<link rel="stylesheet" href="./appManagement/c2cFeeSetting/index.css" />
+<script src="./appManagement/c2cFeeSetting/index.js"></script>
+
+<body>
+  <div class="rootContent">
+    <div class="path">appManagement/c2cFeeSetting</div>
+    <h2>汇率及费率设置</h2>
+    <div class="fillterMenu d-flex flex-wrap">
+      <div class="currency input-group" style="width: 150px;">
+        <select class="form-select" id="currency" aria-label="">
+          <option value="1" selected="">YU币</option>
+        </select>
+      </div>
+    </div>
+    <div class="dataContent">
+      <div class="d-flex flex-column flex-lg-row gap-3">
+        <div class="d-flex  flex-column  gap-3" style="flex: 1">
+          <!-- 用户汇率设置 -->
+          <table class="table table-borderless table-agent-list">
+            <tbody>
+              <tr class="table-secondary">
+                <th colspan="2">用户汇率设置</th>
+              </tr>
+              <tr>
+                <td>用户闪兑汇率(USDT/YU币)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="userFlashExchangeRate" value="" aria-label="Flash exchange rate" autocomplete="off" required="">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><button type="button" id="userRateUpdateBtn" class="btn btn-outline-dark" style="margin-left: auto" disabled>更新</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- 商户汇率设置 -->
+          <table class="table table-borderless table-agent-list">
+            <tbody>
+              <tr class="table-secondary">
+                <th colspan="2">商户汇率设置</th>
+              </tr>
+              <tr>
+                <td>商户闪兑汇率(USDT/YU币)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="merchantFlashExchangeRate" value="" aria-label="Merchant flash exchange rate" autocomplete="off" required="">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>商户提币汇率(USDT/YU币)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="merchantWithdrawRate" value="" aria-label="Merchant withdraw rate" autocomplete="off" required="">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>商户提币功能:</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="merchantWithdrawSwitch" checked="">
+                    <label class="form-check-label" for="merchantWithdrawSwitch">已开启</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>商户互转功能:</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="merchantTransferSwitch" checked="">
+                    <label class="form-check-label" for="merchantTransferSwitch">已开启</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><button type="button" id="merchantRateUpdateBtn" class="btn btn-outline-dark" style="margin-left: auto" disabled>更新</button></td>
+              </tr>
+            </tbody>
+          </table>
+          <!-- 代理商汇率设置 -->
+          <table class="table table-borderless table-agent-list">
+            <tbody>
+              <tr class="table-secondary">
+                <th colspan="2">代理商汇率设置</th>
+              </tr>
+              <tr>
+                <td>代理商闪兑汇率(USDT/YU币)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="agentFlashExchangeRate" value="" aria-label="Agent flash exchange rate" autocomplete="off" required="">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>代理商提币汇率(USDT/YU币)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="agentWithdrawRate" value="" aria-label="Agent withdraw rate" autocomplete="off" required="">
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>代理商提币功能:</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="agentWithdrawSwitch" checked="">
+                    <label class="form-check-label" for="agentWithdrawSwitch">已开启</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>代理商互转功能:</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="agentTransferSwitch" checked="">
+                    <label class="form-check-label" for="agentTransferSwitch">已开启</label>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><button type="button" id="agentRateUpdateBtn" class="btn btn-outline-dark" style="margin-left: auto" disabled>更新</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        <div class="d-flex flex-column  gap-3" style="flex: 1">
+          <!-- 商户费率 -->
+          <table class="table table-borderless table-agent-list">
+            <tbody>
+              <tr class="table-secondary">
+                <th colspan="2">商户费率</th>
+              </tr>
+              <tr>
+                <td>代付费率</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="paymentFeeRate" value="" aria-label="Payment fee rate" autocomplete="off" required="">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>代付佣金分成率(代理商)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="paymentCommissionRateAgent" value="" aria-label="Payment commission rate for agent" autocomplete="off" required="">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>代付佣金分成率(代理商上级)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="paymentCommissionRateSuperAgent" value="" aria-label="Payment commission rate for super agent" autocomplete="off" required="">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>充值费率</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="rechargeFeeRate" value="" aria-label="Recharge fee rate" autocomplete="off" required="">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>充值佣金分成率(代理商)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="rechargeCommissionRateAgent" value="" aria-label="Recharge commission rate for agent" autocomplete="off" required="">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>充值佣金分成率(代理商上级)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="rechargeCommissionRateSuperAgent" value="" aria-label="Recharge commission rate for super agent" autocomplete="off" required="">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>卖单费率</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="sellOrderFeeRate" value="" aria-label="Sell order fee rate" autocomplete="off" required="">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>卖单佣金分成率(代理商)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="sellOrderCommissionRateAgent" value="" aria-label="Sell order commission rate for agent" autocomplete="off" required="">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>卖单佣金分成率(代理商上级)</td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="input-group " style="width: 300px;">
+                    <input type="text" class="form-control" id="sellOrderCommissionRateSuperAgent" value="" aria-label="Sell order commission rate for super agent" autocomplete="off" required="">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td><button type="button" id="merchantFeeUpdateBtn" class="btn btn-outline-dark" style="margin-left: auto" disabled>更新</button></td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- <script>
+    function updatePlaceholder(select) {
+      select.nextElementSibling.value = "";
+      select.nextElementSibling.placeholder = select.options[select.selectedIndex].text;
+    }
+  </script> -->
+</body>

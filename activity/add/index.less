@@ -1,0 +1,134 @@
+.rootContent {
+  min-width: 300px;
+  h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .fillterMenu {
+    gap: 10px;
+
+    .orderNo {
+      //   display: flex;
+      width: 450px;
+      select {
+        max-width: 150px;
+      }
+      input {
+        max-width: 300px;
+      }
+    }
+    .encryptedNetwork,
+    .status {
+      width: 150px;
+      min-width: 150px;
+    }
+    .duringDate {
+      width: 300px;
+      min-width: 300px;
+      #datepicker {
+        input:first-child {
+          max-width: 150px;
+          border-right: none;
+          border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+        }
+        input:last-child {
+          max-width: 150px;
+          border-left: none;
+          border-radius: 0 var(--bs-border-radius) var(--bs-border-radius) 0;
+        }
+        span {
+          padding: 0 10px;
+          display: flex;
+          align-items: center;
+          background-color: var(--bs-body-bg);
+          border-top: 1px solid var(--bs-border-color);
+          border-bottom: 1px solid var(--bs-border-color);
+        }
+      }
+    }
+    .quantityNum {
+      width: 300px;
+      min-width: 300px;
+      input {
+        max-width: 150px;
+        text-align: center;
+      }
+      input:first-child {
+        border-right: none;
+      }
+      input:last-child {
+        border-left: none;
+      }
+      span {
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        background-color: var(--bs-body-bg);
+        border-top: 1px solid var(--bs-border-color);
+        border-bottom: 1px solid var(--bs-border-color);
+      }
+    }
+    .interactionButtons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 100%; // 确保容器占满宽度
+
+      .btn {
+        min-width: 80px;
+        &:last-child {
+          margin-left: auto;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  .dataContent {
+    margin-top: 20px;
+    border: 1px solid var(--bs-border-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: var(--bs-border-radius);
+    width: 100%;
+    overflow-x: auto;
+    table {
+      margin: 0;
+      font-size: 14px;
+      text-wrap: nowrap;
+      tr {
+        vertical-align: middle;
+        height: 60px;
+      }
+    }
+  }
+  .paginationContent {
+    margin-top: 20px;
+    float: right;
+  }
+}
+// /* 统一日期和时间输入框的样式 */
+// input[type="date"],
+// input[type="time"] {
+//   appearance: none;
+//   -webkit-appearance: none;
+//   -moz-appearance: none;
+//   background: #fff;
+//   padding: 10px;
+//   border-radius: 5px;
+//   border: 1px solid #ced4da;
+//   font-size: 16px;
+// }
+
+// /* 鼠标悬停时的效果 */
+// input[type="date"]:hover,
+// input[type="time"]:hover {
+//   border-color: #007bff;
+// }
+
+// /* 选中时的效果 */
+// input[type="date"]:focus,
+// input[type="time"]:focus {
+//   outline: none;
+//   border-color: #007bff;
+//   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+// }

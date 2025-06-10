@@ -1,0 +1,101 @@
+
+<link href="common/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" />
+<script src="common/jquery/jquery-3.7.1.min.js"></script>
+<script src="common/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+
+<link rel="stylesheet" href="./account/partners/info/index.css" />
+<script src="./account/partners/info/index.js"></script>
+
+
+<body>
+  <div class="rootContent">
+    <div class="path">account/partners/info</div>
+    <h2>商户详情</h2>
+
+    <div class="dataContent"></div>
+  </div>
+
+  <!-- <script>
+    function updatePlaceholder(select) {
+      select.nextElementSibling.value = "";
+      select.nextElementSibling.placeholder = select.options[select.selectedIndex].text;
+    }
+  </script> -->
+
+  <!-- Wallet 操作 Modal -->
+  <div class="modal fade" id="walletActionModal" tabindex="-1" aria-labelledby="walletActionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">操作商戶幣</h5>
+        </div>
+        <div class="modal-body">
+          <div class="mb-2">
+            <label for="walletActionType" class="form-label">選擇操作</label>
+            <select id="walletActionType" class="form-select">
+              <option value="">-選擇操作-</option>
+              <option value="increase_balance">增加可用餘額</option>
+              <option value="decrease_balance">減少可用餘額</option>
+              <option value="increase_frozen">增加凍結</option>
+              <option value="decrease_frozen">解除凍結</option>
+              <option value="increase_deposit">增加保證金</option>
+              <option value="decrease_deposit">退還保證金</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label for="walletAmountInput" class="form-label">數量</label>
+            <input type="number" class="form-control" id="walletAmountInput" placeholder="請輸入金額" />
+          </div>
+          <div id="walletActionError" class="text-danger mt-1" style="display: none;"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button class="btn btn-primary" id="walletActionConfirmBtn">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 發幣審核條件 Modal -->
+  <div class="modal fade" id="coinAuditModal" tabindex="-1" aria-labelledby="coinAuditModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="coinAuditModalLabel">交易安全驗證</h5>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="coinAuditPartnerId" />
+          <div class="mb-2">
+            <label class="form-label">幣別</label>
+            <select class="form-select" id="coinAuditCoin">
+              <option value="USDT">USDT</option>
+              <option value="YB">YB</option>
+              <option value="YU">YU</option>
+            </select>
+          </div>
+          <div class="mb-2">
+            <label class="form-label">數量條件 (每筆超過該數量)</label>
+            <div class="input-group">
+              <input type="number" step="0.00000001" class="form-control" id="coinAuditAmountLimit" />
+              <span class="input-group-text" id="coinAuditCoinText">USDT</span>
+            </div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label">筆數條件 (每日超過該筆數)</label>
+            <div class="input-group">
+              <input type="number" class="form-control" id="coinAuditDailyLimit" />
+              <span class="input-group-text">筆</span>
+            </div>
+          </div>
+          <div class="form-text">* 待審核訂單不會計入筆數條件</div>
+          <div class="text-danger mt-2" id="coinAuditError" style="display:none;"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button class="btn btn-primary" id="coinAuditSaveBtn">確認</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>

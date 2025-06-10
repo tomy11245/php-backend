@@ -1,0 +1,53 @@
+<!-- <link href="common/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="common/bootstrap/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css" />
+    <script src="common/jquery/jquery-3.7.1.min.js"></script>
+    <script src="common/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script> -->
+<link rel="stylesheet" href="common/bootstrap/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" />
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script>
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<link rel="stylesheet" href="./account/users/index.css" />
+<script src="./account/users/index.js"></script>
+
+<body>
+  <div class="rootContent">
+    <div class="path">account/users</div>
+    <h2>用户列表</h2>
+    <div class="fillterMenu d-flex flex-wrap">
+      <div class="userNo input-group">
+        <select class="form-select" id="userNo" aria-label="" onchange="updatePlaceholder(this)">
+          <option value="1" selected>用户号</option>
+          <option value="2">用户账号</option>
+          <option value="3">用户号</option>
+          <option value="4">收币地址</option>
+        </select>
+        <input type="text" class="form-control" id="userNoInput" placeholder="用户号" aria-label="" aria-describedby="basic-addon1" />
+      </div>
+
+      <div class="quantityNum input-group">
+        <input type="text" min="0" class="form-control" id="quantityNumMin" placeholder="最小数量" />
+        <span class="input-group-addon"><i class="bi bi-arrows"></i></span>
+        <input type="text" min="0" class="form-control" id="quantityNumMax" placeholder="最大数量" />
+      </div>
+      <div class="userRole input-group">
+        <select class="form-select" id="userRole" aria-label="">
+          <option value="1" selected>-用户角色-</option>
+          <option value="2">一般用户</option>
+        </select>
+      </div>
+      <div class="interactionButtons" style="display: flex; gap: 10px; width: 100%">
+        <button type="button" id="searchBtn" class="btn btn-outline-dark">搜索</button>
+        <button type="button" id="resetBtn" class="btn btn-outline-dark">重置</button>
+        <!-- <button type="button" id="exportBtn" class="btn btn-outline-dark" style="margin-left: auto">导出</button> -->
+      </div>
+    </div>
+    <div class="dataContent"></div>
+    <div class="paginationContent"></div>
+  </div>
+
+  <script>
+    function updatePlaceholder(select) {
+      select.nextElementSibling.value = "";
+      select.nextElementSibling.placeholder = select.options[select.selectedIndex].text;
+    }
+  </script>
+</body>

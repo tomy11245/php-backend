@@ -1,0 +1,76 @@
+.rootContent {
+  min-width: 300px;
+}
+.rootContent h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.rootContent .fillterMenu {
+  gap: 10px;
+}
+.rootContent .fillterMenu .userNo {
+  width: 450px;
+}
+.rootContent .fillterMenu .userNo select {
+  max-width: 150px;
+}
+.rootContent .fillterMenu .userNo input {
+  max-width: 300px;
+}
+.rootContent .fillterMenu .userRole {
+  width: 150px;
+  min-width: 150px;
+}
+.rootContent .fillterMenu .quantityNum {
+  width: 300px;
+  min-width: 300px;
+}
+.rootContent .fillterMenu .quantityNum input {
+  max-width: 150px;
+  text-align: center;
+}
+.rootContent .fillterMenu .quantityNum input:first-child {
+  border-right: none;
+}
+.rootContent .fillterMenu .quantityNum input:last-child {
+  border-left: none;
+}
+.rootContent .fillterMenu .quantityNum span {
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  background-color: var(--bs-body-bg);
+  border-top: 1px solid var(--bs-border-color);
+  border-bottom: 1px solid var(--bs-border-color);
+}
+.rootContent .fillterMenu .interactionButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+.rootContent .fillterMenu .interactionButtons .btn {
+  min-width: 80px;
+}
+.rootContent .dataContent {
+  margin-top: 20px;
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: var(--bs-border-radius);
+  width: 100%;
+  overflow-x: auto;
+}
+.rootContent .dataContent table {
+  margin: 0;
+  font-size: 14px;
+  text-wrap: nowrap;
+}
+.rootContent .dataContent table tr {
+  vertical-align: middle;
+  height: 60px;
+}
+.rootContent .paginationContent {
+  margin-top: 20px;
+  float: right;
+}

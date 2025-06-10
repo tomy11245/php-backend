@@ -1,0 +1,165 @@
+<!-- <link href="common/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="common/bootstrap/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css" />
+    <script src="common/jquery/jquery-3.7.1.min.js"></script>
+    <script src="common/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script> -->
+<!-- <link rel="stylesheet" href="common/bootstrap/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" />
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script>
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.zh-CN.min.js"></script> -->
+<link rel="stylesheet" href="./activity/add/index.css" />
+<script src="./activity/add/index.js"></script>
+
+<body>
+  <div class="rootContent">
+    <div class="path">activity/add</div>
+    <h2>建立新活动</h2>
+
+    <form id="activityForm" class="fillterMenu d-flex flex-column gap-3">
+      <div>
+        <span>活动标题</span>
+        <input type="text" class="form-control" id="activityTitle" autocomplete="off" required />
+      </div>
+      <div>
+        <span>活动内容</span>
+        <textarea class="form-control" id="activityContent" required></textarea>
+      </div>
+
+      <div class="d-flex flex-row gap-2" style="max-width: 400px">
+        <div class="flex-grow-1">
+          <span>活动开始日期</span>
+          <input type="date" id="startDate" name="trip-start" value="" min="2018-01-01" max="2025-12-31" class="form-control" required />
+        </div>
+        <div class="flex-grow-1">
+          <span>活动开始时间</span>
+          <input type="time" id="startTime" name="appt" min="00:00" max="23:59:59" value="00:00" class="form-control" required />
+        </div>
+      </div>
+      <div class="d-flex flex-row gap-2" style="max-width: 400px">
+        <div class="flex-grow-1">
+          <span>活动结束日期</span>
+          <input type="date" id="endDate" name="trip-start" value="" min="2018-01-01" max="2025-12-31" class="form-control" required />
+        </div>
+        <div class="flex-grow-1">
+          <span>活动结束时间</span>
+          <input type="time" id="endTime" name="appt" min="00:00" max="23:59" value="23:59" class="form-control" required />
+        </div>
+      </div>
+      <div style="max-width: 400px">
+        <span>活动种类</span>
+        <select class="form-select" id="activityType" style="max-width: 200px" aria-label="" required>
+          <option selected value="">请选择</option>
+          <option value="1">完成买单</option>
+          <option value="2">完成卖单</option>
+          <option value="3">完成身份认证</option>
+          <option value="4">完成充值(扫码支付)</option>
+        </select>
+      </div>
+      <div>
+        <span>奖励对象</span>
+        <div class="d-flex flex-row column-gap-5 row-gap-2 flex-wrap" style="max-width: 400px">
+          <div class="form-check text-nowrap w-100">
+            <input class="form-check-input" type="checkbox" value="all" id="checkAll" />
+            <label class="form-check-label" for="checkAll"> 所有顾客 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip0" id="checkVip0" />
+            <label class="form-check-label" for="checkVip0"> VIP 0 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip1" id="checkVip1" />
+            <label class="form-check-label" for="checkVip1"> VIP 1 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip2" id="checkVip2" />
+            <label class="form-check-label" for="checkVip2"> VIP 2 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip3" id="checkVip3" />
+            <label class="form-check-label" for="checkVip3"> VIP 3 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip4" id="checkVip4" />
+            <label class="form-check-label" for="checkVip4"> VIP 4 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip5" id="checkVip5" />
+            <label class="form-check-label" for="checkVip5"> VIP 5 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip6" id="checkVip6" />
+            <label class="form-check-label" for="checkVip6"> VIP 6 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip7" id="checkVip7" />
+            <label class="form-check-label" for="checkVip7"> VIP 7 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip8" id="checkVip8" />
+            <label class="form-check-label" for="checkVip8"> VIP 8 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip9" id="checkVip9" />
+            <label class="form-check-label" for="checkVip9"> VIP 9 </label>
+          </div>
+          <div class="form-check text-nowrap">
+            <input class="form-check-input" type="checkbox" value="vip10" id="checkVip10" />
+            <label class="form-check-label" for="checkVip10"> VIP 10 </label>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span>触发条件</span>
+        <div class="input-group mb-3" style="max-width: 300px">
+          <span class="input-group-text">须达</span>
+          <input type="text" class="form-control" id="triggerAmount" aria-label="Amount (to the nearest dollar)" autocomplete="off" required />
+          <span class="input-group-text">YU币</span>
+        </div>
+      </div>
+      <div>
+        <span>奖励数值</span>
+        <div class="input-group mb-3" style="max-width: 300px">
+          <span class="input-group-text">送</span>
+          <input type="text" class="form-control" id="rewardAmount" aria-label="Amount (to the nearest dollar)" autocomplete="off" required />
+          <span class="input-group-text">YU币</span>
+        </div>
+      </div>
+      <div>
+        <span>奖励发放次数</span>
+        <select class="form-select" id="rewardFrequency" style="max-width: 200px" aria-label="" required>
+          <option value="">请选择</option>
+          <option value="1">单次</option>
+          <option value="2" selected>每日一次</option>
+          <option value="3">每7日一次</option>
+          <option value="4">每30日一次</option>
+          <option value="5">不限</option>
+        </select>
+      </div>
+      <div>
+        <span>何时发放奖励</span>
+        <select class="form-select" id="rewardTiming" style="max-width: 200px" aria-label="" required>
+          <option value="">请选择</option>
+          <option value="1" selected>条件达成后</option>
+          <option value="2">活动当天结束后</option>
+          <option value="3">隔周一</option>
+        </select>
+      </div>
+      <div style="max-width: 400px">
+        <span>活动照片</span>
+        <input type="file" class="form-control" id="activityImage" required />
+        <span class="text-muted" style="font-size: 12px">建议尺寸：1280 x 580 像素</span>
+      </div>
+      <div>
+        <button type="submit" id="submitBtn" class="btn btn-primary mb-3">新增</button>
+      </div>
+    </form>
+
+    <!-- <div class="dataContent"></div> -->
+    <!-- <div class="paginationContent"></div> -->
+  </div>
+
+  <!-- <script>
+    function updatePlaceholder(select) {
+      select.nextElementSibling.value = "";
+      select.nextElementSibling.placeholder = select.options[select.selectedIndex].text;
+    }
+  </script> -->
+</body>

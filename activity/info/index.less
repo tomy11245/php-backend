@@ -1,0 +1,53 @@
+.rootContent {
+  min-width: 300px;
+  h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .dataContent {
+    width: 450px;
+    margin-top: 20px;
+    border: 1px solid var(--bs-border-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: var(--bs-border-radius);
+    width: 100%;
+    overflow-x: auto;
+    table {
+      margin: 0;
+      font-size: 14px;
+      width: 100%;
+      tr {
+        vertical-align: middle;
+      }
+      tr td,
+      tr th {
+        padding-left: 20px;
+        width: 100%;
+        word-wrap: break-word;
+        word-break: break-all;
+        a {
+          display: inline-block;
+          width: 100%;
+          word-wrap: break-word;
+          word-break: break-all;
+          overflow-wrap: break-word;
+        }
+      }
+
+      tr:first-child {
+        height: 60px;
+      }
+      tr:nth-child(odd) {
+        td {
+          padding-top: 0;
+        }
+      }
+      tr:nth-child(even) {
+        font-size: 16px;
+        font-weight: bold;
+      }
+    }
+  }
+}

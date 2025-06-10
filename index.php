@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>后台管理</title>
+  <link href="common/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" />
+  <link href="./index.css" rel="stylesheet" />
+  <link rel="stylesheet" href="common/bootstrap/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css" />
+  <script src="common/jquery/jquery-3.7.1.min.js"></script>
+  <script src="common/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script>
+  <script src="common/js/global.js"></script>
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand navbar-light bg-primary">
+    <div class="container-fluid">
+      <div class="d-flex">
+        <button class="btn text-bg-warning"><?php session_start(); echo $_SESSION["username"] ?? "訪客"; ?></button>
+      </div>
+      <div class="d-flex">
+        <button class="btn text-bg-warning" id="logoutBtn">退出</button>
+      </div>
+    </div>
+  </nav>
+  <div class="wrapper">
+    <!-- 侧边栏 -->
+    <nav id="sidebar" class="bg-dark">
+      <div class="text-secondary">订单</div>
+      <ul class="list-unstyled components">
+        <!-- 用户订单中心 collect -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="userOrderHeader">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menudingdan1" aria-expanded="false" aria-controls="userSubmenu">
+                  <i class="bi bi-folder-fill"></i>用户订单中心
+                </a>
+              </h2>
+              <div id="menudingdan1" class="accordion-collapse collapse" aria-labelledby="userOrderHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#/userOrders/collect/" id="/userOrders/collect/">用户内兑订单</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- 商户订单中心 partnerOrders -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="menu-dingdan-2">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menudingdan2" aria-expanded="false" aria-controls="userSubmenu">
+                  <i class="bi bi-folder-fill"></i>商户订单中心
+                </a>
+              </h2>
+              <div id="menudingdan2" class="accordion-collapse collapse" aria-labelledby="menu-dingdan-1">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#/partnerOrders/recharge/" class="text-white" id="/partnerOrders/recharge/">充值订单 </a>
+                    </li>
+                    <li>
+                      <a href="#/partnerOrders/payout/" class="text-white" id="/partnerOrders/payout/">代付订单</a>
+                    </li>
+                    <li>
+                      <a href="#/partnerOrders/collect/" class="text-white" id="/partnerOrders/collect/">商户闪兑订单</a>
+                    </li>
+                    <li>
+                      <a href="#/partnerOrders/withdraw/" class="text-white" id="/partnerOrders/withdraw/">商户提币订单</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- 互转订单中心 transferOrders -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="menu-dingdan-2">
+                <a href="#/transferOrders/transfer/" class="accordion-button bg-dark text-white collapsed no-arrow" id="/transferOrders/transfer/">
+                  <i class="bi bi-folder-fill"></i>互转订单中心
+                </a>
+              </h2>
+            </div>
+          </div>
+        </li>
+        <!-- 买卖订单中心 c2cOrders -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="menu-dingdan-2">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#menudingdan4" aria-expanded="false" aria-controls="userSubmenu">
+                  <i class="bi bi-folder-fill"></i>买卖订单中心
+                </a>
+              </h2>
+              <div id="menudingdan4" class="accordion-collapse collapse" aria-labelledby="menu-dingdan-1">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#/c2cOrders/buy/" class="text-white" id="/c2cOrders/buy/">买币订单 </a></li>
+                    <li><a href="#/c2cOrders/sell/" class="text-white" id="/c2cOrders/sell/"> 卖币挂单</a></li>
+                    <li><a href="#/c2cOrders/processing/" class="text-white" id="/c2cOrders/processing/"> 交易中订单 </a></li>
+                    <li><a href="#/c2cOrders/appealing/" class="text-white" id="/c2cOrders/appealing/"> 申诉中订单</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="text-secondary">用户</div>
+      <ul class="list-unstyled components">
+        <!-- 后台用户管理 /account/managers -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header">
+                <a href="#/account/managers/" class="accordion-button bg-dark text-white collapsed no-arrow" id="/account/managers/">
+                  <i class="bi bi-people-fill"></i>后台用户管理
+                </a>
+              </h2>
+            </div>
+          </div>
+        </li>
+        <!-- 用户管理 /account/users -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="userManageHeader">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#userManageMenu" aria-expanded="false" aria-controls="userManageSubmenu">
+                  <i class="bi bi-person-vcard-fill"></i>用户管理
+                </a>
+              </h2>
+              <div id="userManageMenu" class="accordion-collapse collapse" aria-labelledby="userManageHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#/account/users/" class="text-white" id="/account/users/">用户列表</a>
+                    </li>
+                    <li><a href="#/account/users/kyc/" class="text-white" id="/account/users/kyc/">用户身份认证审核</a></li>
+                    <li><a href="#/account/users/blacklist/" class="text-white" id="/account/users/blacklist/">用户黑名单</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- 商户管理 /account/partners -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="merchantManageHeader">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#merchantManageMenu" aria-expanded="false" aria-controls="merchantManageSubmenu">
+                  <i class="bi bi-houses-fill"></i>商户管理
+                </a>
+              </h2>
+              <div id="merchantManageMenu" class="accordion-collapse collapse" aria-labelledby="merchantManageHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#/account/partners/" class="text-white" id="/account/partners/">商户列表</a>
+                    </li>
+                    <li><a href="#/account/partners/feeSetting/" class="text-white" id="/account/partners/feeSetting/">官方收取费率设定</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- 代理商管理 /account/affiliates -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="agentManageHeader">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#agentManageMenu" aria-expanded="false" aria-controls="agentManageSubmenu">
+                  <i class="bi bi-house-fill"></i>代理商管理
+                </a>
+              </h2>
+              <div id="agentManageMenu" class="accordion-collapse collapse" aria-labelledby="agentManageHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#/account/affiliates/" id="/account/affiliates/" class="text-white">代理商列表</a></li>
+                    <li><a href="#/account/affiliates/feeSetting/" id="/account/affiliates/feeSetting/" class="text-white">官方收取费率设定</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- IP管理 ipManagement -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="ipManageHeader">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#ipManageMenu" aria-expanded="false" aria-controls="ipManageSubmenu">
+                  <i class="bi bi-pin-map-fill"></i>IP管理
+                </a>
+              </h2>
+              <div id="ipManageMenu" class="accordion-collapse collapse" aria-labelledby="ipManageHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#/ipManagement/ipList/" class="text-white" id="/ipManagement/ipList/">IP列表</a></li>
+                    <li><a href="#/ipManagement/ipBlacklist/" class="text-white" id="/ipManagement/ipBlacklist/">IP黑名单</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <!-- 余额操作记录 balanceRecord -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="balanceRecordHeader">
+                <a href="#/adjustBalance/" id="/adjustBalance/" class="accordion-button bg-dark text-white collapsed no-arrow">
+                  <i class="bi bi-card-list"></i>余额操作记录
+                </a>
+              </h2>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="text-secondary">活动</div>
+      <ul class="list-unstyled components">
+        <!-- 活动列表 -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header">
+                <a href="#/activity/" id="/activity/" class="accordion-button bg-dark text-white collapsed no-arrow">
+                  <i class="bi bi-calendar-event-fill"></i>活动列表
+                </a>
+              </h2>
+            </div>
+          </div>
+        </li>
+        <!-- 建立新活动 -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header">
+                <a href="#/activity/add/" id="/activity/add/" class="accordion-button bg-dark text-white collapsed no-arrow">
+                  <i class="bi bi-plus-square"></i>建立新活动
+                </a>
+              </h2>
+            </div>
+          </div>
+        </li>
+        <!-- 奖金池 -->
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header">
+                <a href="#/activity/prizePool/" id="/activity/prizePool/" class="accordion-button bg-dark text-white collapsed no-arrow">
+                  <i class="bi bi-trophy"></i>奖金池
+                </a>
+              </h2>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="text-secondary">设定</div>
+      <ul class="list-unstyled components">
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="settingHeader">
+                <a class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#settingMenu" aria-expanded="false" aria-controls="settingSubmenu">
+                  <i class="bi bi-phone-fill"></i>APP通用管理
+                </a>
+              </h2>
+              <div id="settingMenu" class="accordion-collapse collapse" aria-labelledby="settingHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#/appManagement/prizePoolRateSetting/" id="/appManagement/prizePoolRateSetting/" class="text-white">奖金池设置</a></li>
+                    <li><a href="#/appManagement/c2cFeeSetting/" id="/appManagement/c2cFeeSetting/" class="text-white">汇率及费率设置</a></li>
+                    <li><a href="#/appManagement/vipSetting/" id="/appManagement/vipSetting/" class="text-white">VIP设定</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="text-secondary">资金管理</div>
+      <ul class="list-unstyled components">
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="userFundHeader">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#userFundMenu" aria-expanded="false" aria-controls="userFundSubmenu">
+                  <i class="bi bi-wallet-fill"></i>用户资金管理
+                </a>
+              </h2>
+              <div id="userFundMenu" class="accordion-collapse collapse" aria-labelledby="userFundHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#/wallet/general/users/" id="/wallet/general/users/" class="text-white">用户资金列表</a></li>
+                    <li><a href="#/wallet/general/partners/" id="/wallet/general/partners/" class="text-white">商户资金列表</a></li>
+                    <li><a href="#/wallet/general/aggHistory/" id="/wallet/general/aggHistory/" class="text-white">归集记录</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="officialFundHeader">
+                <a class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#officialFundMenu" aria-expanded="false" aria-controls="officialFundSubmenu">
+                  <i class="bi bi-bank"></i>官方资金管理
+                </a>
+              </h2>
+              <div id="officialFundMenu" class="accordion-collapse collapse" aria-labelledby="officialFundHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#/wallet/official/hot/" id="/wallet/official/hot/" class="text-white">出款池列表</a></li>
+                    <li><a href="#/wallet/official/cold/" id="/wallet/official/cold/" class="text-white">冷钱包列表</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div class="text-secondary">报表中心</div>
+      <ul class="list-unstyled components">
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="userReportHeader">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#userReportMenu" aria-expanded="false" aria-controls="userReportSubmenu">
+                  <i class="bi bi-file-earmark-text-fill"></i>用户报表
+                </a>
+              </h2>
+              <div id="userReportMenu" class="accordion-collapse collapse" aria-labelledby="userReportHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#/reports/user/cashflow/" id="/reports/user/cashflow/" class="text-white">用户流水报表</a></li>
+                    <li><a href="#/reports/user/balanceSheet/" id="/reports/user/balanceSheet/" class="text-white">用户结余报表</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="merchantReportHeader">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#merchantReportMenu" aria-expanded="false" aria-controls="merchantReportSubmenu">
+                  <i class="bi bi-file-earmark-text-fill"></i>商户报表
+                </a>
+              </h2>
+              <div id="merchantReportMenu" class="accordion-collapse collapse" aria-labelledby="merchantReportHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#/reports/partner/cashflow/" id="/reports/partner/cashflow/" class="text-white">商户流水报表</a></li>
+                    <li><a href="#/reports/partner/balanceSheet/" id="/reports/partner/balanceSheet/" class="text-white">商户结余报表</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="accordion">
+            <div class="accordion-item bg-dark border-0">
+              <h2 class="accordion-header" id="fundPoolReportHeader">
+                <a href="#" class="accordion-button bg-dark text-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#fundPoolReportMenu" aria-expanded="false" aria-controls="fundPoolReportSubmenu">
+                  <i class="bi bi-file-earmark-text-fill"></i>资金池报表
+                </a>
+              </h2>
+              <div id="fundPoolReportMenu" class="accordion-collapse collapse" aria-labelledby="fundPoolReportHeader">
+                <div class="accordion-body">
+                  <ul class="list-unstyled">
+                    <li><a href="#/reports/crypto/capitalCashflow/" id="/reports/crypto/capitalCashflow/" class="text-white">收币地址流水报表</a></li>
+                    <li><a href="#/reports/crypto/depositorCashflow/" id="/reports/crypto/depositorCashflow/" class="text-white">资金池流水报表</a></li>
+                    <li><a href="#/reports/crypto/balanceSheet/" id="/reports/crypto/balanceSheet/" class="text-white">链地址结余报表</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- 页面内容 -->
+    <div id="content">
+      <div class="container-fluid">
+        <div>欢迎回来</div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">编辑费率</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary">保存</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

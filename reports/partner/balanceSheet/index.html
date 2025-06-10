@@ -1,0 +1,32 @@
+<!-- <link href="common/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="common/bootstrap/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css" />
+    <script src="common/jquery/jquery-3.7.1.min.js"></script>
+    <script src="common/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script> -->
+<link rel="stylesheet" href="common/bootstrap/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" />
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script>
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<link rel="stylesheet" href="./reports/partner/balanceSheet/index.css" />
+<script src="./reports/partner/balanceSheet/index.js"> </script>
+
+<body>
+  <div class="rootContent">
+    <div class="path">reports/partner/balanceSheet</div>
+    <h2>商户结余报表</h2>
+    <div class="fillterMenu d-flex flex-wrap">
+      <div class="duringDate">
+        <div class="input-daterange input-group" id="datepicker">
+          <input type="text" class="input-sm form-control" id="duringDateStart" autocomplete="off" name="start" placeholder="开始时间" />
+          <span class="input-group-addon"><i class="bi bi-arrow-right"></i></span>
+          <input type="text" class="input-sm form-control" id="duringDateEnd" autocomplete="off" name="end" placeholder="结束时间" />
+        </div>
+      </div>
+
+      <div class="interactionButtons" style="display: flex; gap: 10px; width: 100%">
+        <button type="button" id="exportBtn" class="btn btn-outline-dark">导出</button>
+        <button type="button" id="resetBtn" class="btn btn-outline-dark">重置</button>
+      </div>
+    </div>
+  </div>
+
+
+</body>

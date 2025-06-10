@@ -1,0 +1,60 @@
+<!-- <link href="common/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="common/bootstrap/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css" />
+    <script src="common/jquery/jquery-3.7.1.min.js"></script>
+    <script src="common/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script> -->
+<link rel="stylesheet" href="common/bootstrap/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" />
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script>
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+<link rel="stylesheet" href="./transferOrders/transfer/index.css" />
+<script src="./transferOrders/transfer/index.js"></script>
+
+<body>
+  <div class="rootContent">
+    <div class="path">transferOrders/transfer</div>
+    <h2>互转订单中心</h2>
+    <div class="fillterMenu d-flex flex-wrap">
+      <div class="orderNo input-group">
+        <select class="form-select" id="orderNo" aria-label="" onchange="updatePlaceholder(this)">
+          <option value="1" selected>系统订单号</option>
+          <option value="2">发送方商户/代理商名称</option>
+          <option value="3">接收方商户/代理商名称</option>
+        </select>
+        <input type="text" class="form-control" id="orderNoInput" placeholder="系统订单号" aria-label="" aria-describedby="basic-addon1" />
+      </div>
+      <div class="status input-group">
+        <select class="form-select" id="status" aria-label="">
+          <option value="1" selected>状态</option>
+          <option value="2">处理中</option>
+          <option value="3">成功</option>
+          <option value="4">失败</option>
+        </select>
+      </div>
+      <div class="duringDate">
+        <div class="input-daterange input-group" id="datepicker">
+          <input type="text" class="input-sm form-control" id="duringDateStart" autocomplete="off" name="start" placeholder="开始时间" />
+          <span class="input-group-addon"><i class="bi bi-arrow-right"></i></span>
+          <input type="text" class="input-sm form-control" id="duringDateEnd" autocomplete="off" name="end" placeholder="结束时间" />
+        </div>
+      </div>
+      <div class="quantityNum input-group">
+        <input type="text" min="0" class="form-control" id="quantityNumMin" placeholder="最小数量" />
+        <span class="input-group-addon"><i class="bi bi-arrows"></i></span>
+        <input type="text" min="0" class="form-control" id="quantityNumMax" placeholder="最大数量" />
+      </div>
+      <div class="interactionButtons" style="display: flex; gap: 10px; width: 100%">
+        <button type="button" id="searchBtn" class="btn btn-outline-dark">搜索</button>
+        <button type="button" id="resetBtn" class="btn btn-outline-dark">重置</button>
+        <button type="button" id="exportBtn" class="btn btn-outline-dark" style="margin-left: auto">导出</button>
+      </div>
+    </div>
+    <div class="dataContent"></div>
+    <div class="paginationContent"></div>
+  </div>
+
+  <script>
+    function updatePlaceholder(select) {
+      select.nextElementSibling.value = "";
+      select.nextElementSibling.placeholder = select.options[select.selectedIndex].text;
+    }
+  </script>
+</body>

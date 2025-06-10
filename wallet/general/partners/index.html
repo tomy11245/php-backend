@@ -1,0 +1,79 @@
+<!-- <link href="common/bootstrap/bootstrap-5.3.3-dist/css/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="common/bootstrap/bootstrap-icons-1.11.3/font/bootstrap-icons.min.css" />
+    <script src="common/jquery/jquery-3.7.1.min.js"></script>
+    <script src="common/bootstrap/bootstrap-5.3.3-dist/js/bootstrap.min.js"></script> -->
+<!-- <link rel="stylesheet" href="common/bootstrap/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" />
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script>
+<script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.zh-CN.min.js"></script> -->
+<link rel="stylesheet" href="./wallet/general/partners/index.css" />
+<script src="./wallet/general/partners/index.js"></script>
+
+<body>
+  <div class="rootContent">
+    <div class="path">wallet/general/partners</div>
+    <h2>商户资金列表</h2>
+    <div class="fillterMenu d-flex flex-wrap">
+
+      <div class="interactionButtons d-flex justify-content-between">
+        <div class="d-flex gap-2">
+          <div class="status input-group">
+            <select class="form-select" id="currencyType1" aria-label="">
+              <option value="1" selected>USDT</option>
+            </select>
+          </div>
+          <div class="status input-group">
+            <select class="form-select" id="currencyType2" aria-label="">
+              <option value="1" selected>TRC20</option>
+            </select>
+          </div>
+        </div>
+        <div class="d-flex gap-2">
+          <button type="button" id="collectBtn" class="btn btn-outline-dark" style="margin-left: auto">归集</button>
+          <button type="button" id="sendTrxBtn" class="btn btn-outline-dark" style="margin-left: auto">发送TRX</button>
+        </div>
+      </div>
+    </div>
+    <div class="dataContent">
+      <table class="table">
+        <thead>
+          <tr class="table-secondary">
+            <th>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="fromCheckAll">
+                <label class="form-check-label" for="fromCheckAll">
+                  用户号
+                </label>
+              </div>
+            </th>
+            <th>收币地址</th>
+            <th> USDT 数量</th>
+            <th>TRX 数量</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <!-- <tr>
+            <td>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="fromCheckDefault">
+                <label class="form-check-label" for="fromCheckDefault">
+                  <a href="">UID123560718</a>
+                </label>
+              </div>
+            </td>
+            <td> <a href=""> TTe7UAtN6zMpijiwCCFd31B4zZ2z3sPXs5</a></td>
+            <td>300.000000</td>
+            <td> 0.000000</td>
+          </tr> -->
+        </tbody>
+      </table>
+    </div>
+    <div class="paginationContent"></div>
+  </div>
+
+  <!-- <script>
+    function updatePlaceholder(select) {
+      select.nextElementSibling.value = "";
+      select.nextElementSibling.placeholder = select.options[select.selectedIndex].text;
+    }
+  </script> -->
+</body>

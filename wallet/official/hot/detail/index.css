@@ -1,0 +1,36 @@
+.rootContent {
+  min-width: 300px;
+}
+.rootContent h2 {
+  font-size: 30px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+.rootContent .fillterMenu {
+  gap: 10px;
+}
+.rootContent .dataContent,
+.rootContent .detailContent {
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: var(--bs-border-radius);
+  width: 100%;
+  overflow-x: auto;
+}
+.rootContent table {
+  margin: 0;
+  font-size: 14px;
+  text-wrap: nowrap;
+}
+.rootContent table thead {
+  height: 60px;
+  vertical-align: middle;
+}
+.rootContent table tbody {
+  height: 40px;
+  vertical-align: middle;
+}
+.rootContent .paginationContent {
+  margin-top: 20px;
+  float: right;
+}

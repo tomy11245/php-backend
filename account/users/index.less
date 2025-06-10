@@ -1,0 +1,84 @@
+.rootContent {
+  min-width: 300px;
+  h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  .fillterMenu {
+    gap: 10px;
+
+    .userNo {
+      //   display: flex;
+      width: 450px;
+      select {
+        max-width: 150px;
+      }
+      input {
+        max-width: 300px;
+      }
+    }
+    .userRole {
+      width: 150px;
+      min-width: 150px;
+    }
+
+    .quantityNum {
+      width: 300px;
+      min-width: 300px;
+      input {
+        max-width: 150px;
+        text-align: center;
+      }
+      input:first-child {
+        border-right: none;
+      }
+      input:last-child {
+        border-left: none;
+      }
+      span {
+        padding: 0 10px;
+        display: flex;
+        align-items: center;
+        background-color: var(--bs-body-bg);
+        border-top: 1px solid var(--bs-border-color);
+        border-bottom: 1px solid var(--bs-border-color);
+      }
+    }
+    .interactionButtons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 100%; // 确保容器占满宽度
+
+      .btn {
+        min-width: 80px;
+        // &:last-child {
+        //   margin-left: auto;
+        //   margin-right: 0;
+        // }
+      }
+    }
+  }
+  .dataContent {
+    margin-top: 20px;
+    border: 1px solid var(--bs-border-color);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    border-radius: var(--bs-border-radius);
+    width: 100%;
+    overflow-x: auto;
+    table {
+      margin: 0;
+      font-size: 14px;
+      text-wrap: nowrap;
+      tr {
+        vertical-align: middle;
+        height: 60px;
+      }
+    }
+  }
+  .paginationContent {
+    margin-top: 20px;
+    float: right;
+  }
+}

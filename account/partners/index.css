@@ -1,0 +1,53 @@
+.rootContent {
+  min-width: 300px;
+}
+.rootContent h2 {
+  font-size: 30px;
+  font-weight: 600;
+}
+.rootContent .fillterMenu {
+  gap: 10px;
+}
+.rootContent .fillterMenu .partnersName {
+  width: 450px;
+}
+.rootContent .fillterMenu .partnersName select {
+  max-width: 150px;
+}
+.rootContent .fillterMenu .partnersName input {
+  max-width: 300px;
+}
+.rootContent .fillterMenu .interactionButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+.rootContent .fillterMenu .interactionButtons .btn {
+  min-width: 80px;
+}
+.rootContent .fillterMenu .interactionButtons .btn:last-child {
+  margin-left: auto;
+  margin-right: 0;
+}
+.rootContent .dataContent {
+  margin-top: 20px;
+  border: 1px solid var(--bs-border-color);
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: var(--bs-border-radius);
+  width: 100%;
+  overflow-x: auto;
+}
+.rootContent .dataContent table {
+  margin: 0;
+  font-size: 14px;
+  text-wrap: nowrap;
+}
+.rootContent .dataContent table tr {
+  vertical-align: middle;
+  height: 60px;
+}
+.rootContent .paginationContent {
+  margin-top: 20px;
+  float: right;
+}

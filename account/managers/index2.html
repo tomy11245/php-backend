@@ -1,0 +1,40 @@
+
+<!-- 範例 html -->
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>后台用户管理</title>
+  <link rel="stylesheet" href="common/bootstrap/bootstrap-datepicker-1.9.0-dist/css/bootstrap-datepicker.min.css" />
+  <script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/js/bootstrap-datepicker.min.js"></script>
+  <script src="common/bootstrap/bootstrap-datepicker-1.9.0-dist/locales/bootstrap-datepicker.zh-CN.min.js"></script>
+  <link rel="stylesheet" href="./account/managers/index.css" />
+  <script src="./account/managers/index.js"></script>
+</head>
+<body>
+  <div class="rootContent">
+    <div class="path">account/managers</div>
+    <div class="d-flex align-items-center mb-3">
+      <h2 class="mb-0 me-3">后台用户管理</h2>
+      <button type="button" id="addBackstageUser" class="btn btn-outline-dark">添加后台用户</button>
+    </div>
+    <div class="fillterMenu d-flex flex-wrap">
+      <div class="searchUserName input-group">
+        <input type="text" class="form-control" placeholder="后台用户名称" />
+      </div>
+      <div class="interactionButtons d-flex justify-content-between" style="width: 100%">
+        <div class="d-flex gap-3">
+          <button type="button" id="searchBtn" class="btn btn-outline-dark">搜索</button>
+          <button type="button" id="resetBtn" class="btn btn-outline-dark">重置</button>
+        </div>
+        <div class="d-flex gap-3">
+          <button type="button" id="passwordResetRequestBtn" class="btn btn-outline-dark" onclick="g_data.passwordResetRequest()">重设密码要求(0)</button>
+          <button type="button" id="loginIpWhiteListBtn" class="btn btn-outline-dark">登陆IP白名单</button>
+        </div>
+      </div>
+    </div>
+    <div class="dataContent"></div>
+    <div class="paginationContent"></div>
+  </div>
+</body>
+</html>

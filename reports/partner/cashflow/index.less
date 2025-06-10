@@ -1,0 +1,55 @@
+.rootContent {
+  min-width: 300px;
+
+  h2 {
+    font-size: 30px;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+
+  .fillterMenu {
+
+    gap: 10px;
+
+    .duringDate {
+      width: 300px;
+      min-width: 300px;
+
+      #datepicker {
+        input:first-child {
+          max-width: 150px;
+          border-right: none;
+          border-radius: var(--bs-border-radius) 0 0 var(--bs-border-radius);
+        }
+
+        input:last-child {
+          max-width: 150px;
+          border-left: none;
+          border-radius: 0 var(--bs-border-radius) var(--bs-border-radius) 0;
+        }
+
+        span {
+          padding: 0 10px;
+          display: flex;
+          align-items: center;
+          background-color: var(--bs-body-bg);
+          border-top: 1px solid var(--bs-border-color);
+          border-bottom: 1px solid var(--bs-border-color);
+        }
+      }
+    }
+
+    .interactionButtons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      width: 100%; // 确保容器占满宽度
+
+      .btn {
+        min-width: 80px;
+      }
+    }
+  }
+
+
+}
